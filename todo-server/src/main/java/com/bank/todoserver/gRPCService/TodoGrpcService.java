@@ -6,12 +6,13 @@ import com.bank.todoproto.TodoRes;
 import com.bank.todoproto.TodoServiceGrpc;
 import com.bank.todoserver.service.ITodoService;
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-@Service
+@GrpcService
 public class TodoGrpcService extends TodoServiceGrpc.TodoServiceImplBase {
 
     @Autowired
