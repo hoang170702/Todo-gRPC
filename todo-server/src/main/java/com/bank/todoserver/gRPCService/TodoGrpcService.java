@@ -1,4 +1,4 @@
-package com.bank.todoserver.controller;
+package com.bank.todoserver.gRPCService;
 
 import com.bank.todoproto.Empty;
 import com.bank.todoproto.TodoReq;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class TodoGrpcController extends TodoServiceGrpc.TodoServiceImplBase {
+public class TodoGrpcService extends TodoServiceGrpc.TodoServiceImplBase {
 
     @Autowired
     private ITodoService iTodoService;
