@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.bank.todoproto";
+option java_outer_classname = "TodoProto";
+
+service TodoService {
+  rpc AddOrUpdateOrDel (TodoReq) returns (TodoRes);
+  rpc GetTodos (Empty) returns (TodoRes);
+}
+
+message Empty {}
+
+message TodoReq{
+  string reqId = 1;
+  Todo todo = 2;
+  bool isDel = 3;
+}
+
+message TodoRes{
+  string resId = 1;
+  string resMessage = 2;
+  TodoList todos = 3;
+}
+
+message Todo{
+  int32 id = 1;
+  string title = 2;
+}
+
+message TodoList{
+  repeated Todo todos = 1;
+}
