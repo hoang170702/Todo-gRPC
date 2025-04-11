@@ -8,5 +8,5 @@ import lombok.Setter;
 public class Todo {
     private int id;
     private String title;
-    private Boolean isDel;
+        private Boolean isDel;
 }

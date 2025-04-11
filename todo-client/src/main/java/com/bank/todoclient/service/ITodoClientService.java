@@ -4,7 +4,9 @@ import com.bank.todoclient.model.Todo;
 import com.bank.todoproto.TodoList;
 import com.bank.todoproto.TodoRes;
 
+import java.util.List;
+
 public interface ITodoClientService {
     public void addOrUpdateOrDel(Todo todo);
-    public TodoRes getAll();
+    public List<Todo> getAll();
 }

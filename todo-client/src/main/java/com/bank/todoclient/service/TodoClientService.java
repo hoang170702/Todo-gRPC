@@ -5,6 +5,8 @@ import com.bank.todoproto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -31,7 +33,16 @@ public class TodoClientService implements ITodoClientService {
     }
 
     @Override
-    public TodoRes getAll() {
-        return stub.getTodos(Empty.newBuilder().build());
+    public List<Todo> getAll() {
+       TodoRes todoRes= stub.getTodos(Empty.newBuilder().build());
+        List<Todo> todos = new ArrayList<>();
+
+        for (com.bank.todoproto.Todo todo : todoRes.getTodos().getTodosList()){
+            Todo cTodo = new Todo();
+            cTodo.setId(todo.getId());
+            cTodo.setTitle(todo.getTitle());
+            todos.add(cTodo);
+        }
+        return todos;
     }
 }
